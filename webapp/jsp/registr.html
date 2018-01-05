@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>注册</title>
+    <link href="css/registr.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+ function len6to16(self) {
+            var allNext = $(self).nextAll();
+            if (self.value.length < 6 || self.value.length > 16) {
+                $(allNext[0]).show();
+                $(allNext[2]).text('输入内容在6-16位之间');
+            }else{
+				$(allNext[0]).show();
+				$(allNext[2]).hide();
+			}
+				
+        }
+        function passwordEQ() {
+            var passwordSet = $(':password');
+            var allNext = $(passwordSet[1]).nextAll();
+            if (passwordSet[0].value != passwordSet[1].value) {
+                $(allNext[0]).show();
+                $(allNext[2]).text('两次密码不一致');
+            }else{
+				$(allNext[0]).show();
+				$(allNext[2]).hide();
+			}
+        }
+        $(function () {
+            $(':button').click(function () {
+                var textBoxSet = $('.regTextBox');
+                var errorSet = $('.error');
+                var tipsSet = $('.tops');
+
+                for (var i = 0; i < textBoxSet.length; i++) {
+                    if (textBoxSet[i].value == undefined || textBoxSet[i].value == '') {
+                        $(errorSet[i]).show();
+                        $(tipsSet[i]).text('请输入内容');
+                    }else{
+				$(allNext[0]).show();
+				$(allNext[2]).hide();
+			} 
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="reg">
+           <!-- <div class="head">
+                <a href="#" class="logo"><img src="图片/tubiao.png" /></a>
+                <a href="#" class="welcome"><img src="图片/zctp.png" style="margin-bottom:8px;"/></a>
+            </div>-->
+        <div class="main">
+            <!--<div class="ad"><img src="img/zhuce/zhucebg.jpg" width="390" height="420" /></div>-->
+            <div class="form">
+                <form method="post" onsubmit="return false" action>
+                        <h3>注册</h3>
+                    <div class="list">
+                        <div class="box"> 
+                                                                                   
+                            <input type="text" class="regTextBox" onblur="len6to16(this)" placeholder="手机号" />
+                            <span class="icon"><img src="img/registr/telephone.png" /></span>
+                            <b class="error">×</b>
+                            <span class="tops"></span>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="box">                           
+                            <input type="text" class="regTextBox" placeholder="昵称" />
+                            <span class="icon"><img src="img/registr/username.png" /></span>
+
+                             <b class="error">×</b>
+                            <span class="tops"></span>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="box">                            
+                            <input type="password" class="regTextBox" onblur="len6to16(this)" placeholder="密码"  />
+                            <span class="icon"><img src="img/registr/key.png" /></span>
+                            <span class="error">×</span>
+                            <span class="tops"></span>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="box">                            
+                            <input type="password" class="regTextBox" onblur="passwordEQ()" placeholder="确认密码" />
+                            <span class="icon"><img src="img/registr/key.png" /></span>
+                            <b class="error">×</b>
+                            <span class="tops"></span>
+                        </div>
+                    </div>
+                    <input type="checkbox" checked="checked" style="margin-bottom:10px;" />同意
+                    <a href="#" style="margin-bottom:10px;margin-left:-3px; text-decoration:none;">注册条款</a>
+                    <div>
+                    <a href="#"><input type="button" value="立即注册" /></a>
+                    </div>
+
+                    <!--<div class="fastway">
+                        <h3>无需注册，即可登录</h3>
+                        <a href="#"><input type="submit" value="QQ登录" style="background-color:#1cadec;" /></a>
+                        <a href="#"><input type="submit" value="微博登录" style="background-color:#fb4e56;" /></a>
+                        <a href="#"><input type="submit" value="微信登录" style="background-color:#00cb00;" /></a>
+                    </div>
+                    <div class="moreway"><a href="#" style="text-decoration:none; color:#666;">更多登录方式 > ></a></div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
